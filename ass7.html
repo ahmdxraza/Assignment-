@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Card Designs</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+
+        /* =========================
+           DESIGN 1 - RESPONSIVE CARDS
+           ========================= */
+
+        .heading1 {
+            background-color: #d50065;
+            color: white;
+            text-align: center;
+            font-size: 42px;
+            font-weight: bold;
+            padding: 25px;
+            margin: 0;
+        }
+
+        .cards-section {
+            background-color: #f1f1f1;
+            padding: 50px 10%;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 38px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 305px;
+            background-color: #eeeeee;
+            border: 1px solid #d5d5d5;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px #ccc;
+        }
+
+        .card img {
+            width: 100%;
+            height: 205px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-content h2 {
+            margin: 0 0 10px;
+            font-size: 26px;
+        }
+
+        .card-content p {
+            color: #666;
+            line-height: 1.35;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .read-btn {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            padding: 9px 17px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .flexbox-heading {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-size: 50px;
+            padding: 15px;
+            margin: 0;
+        }
+
+
+        /* =========================
+           DESIGN 2 - SOCIAL CARDS
+           ========================= */
+
+        .social-section {
+            padding: 60px 20px;
+            background-color: white;
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-card {
+            width: 190px;
+            min-height: 270px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 25px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-card.instagram {
+            background-color: #e52d6d;
+            color: white;
+            border: none;
+        }
+
+        .social-icon {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .social-card h2 {
+            font-size: 20px;
+            margin: 0 0 10px;
+        }
+
+        .social-card p {
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 0 0 18px;
+        }
+
+        .social-btn {
+            width: 100%;
+            padding: 9px;
+            border-radius: 20px;
+            border: none;
+            background-color: black;
+            color: white;
+            margin-top: auto;
+            cursor: pointer;
+        }
+
+        .instagram .social-btn {
+            background-color: white;
+            color: #e52d6d;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+           ========================= */
+
+        @media (max-width: 700px) {
+
+            .heading1 {
+                font-size: 28px;
+            }
+
+            .flexbox-heading {
+                font-size: 35px;
+            }
+
+            .cards-section {
+                padding: 30px 20px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 305px;
+            }
+
+            .social-card {
+                width: 220px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- =================================
+     FIRST DESIGN
+     RESPONSIVE CARD DESIGN
+     ================================= -->
+
+<h1 class="heading1">
+    RESPONSIVE CARD DESIGN
+</h1>
+
+<div class="cards-section">
+
+    <div class="cards-container">
+
+        <!-- CARD 1 -->
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600"
+                 alt="Mountain">
+
+            <div class="card-content">
+
+                <h2>Card 1</h2>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read More
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600"
+                 alt="Mountain">
+
+            <div class="card-content">
+
+                <h2>Card 2</h2>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read More
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+
+        <div class="card">
+
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600"
+                 alt="Mountain">
+
+            <div class="card-content">
+
+                <h2>Card 3</h2>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua
+                </p>
+
+                <a href="#" class="read-btn">
+                    Read More
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<h1 class="flexbox-heading">
+    Using Flexbox
+</h1>
+
+
+<br><br><br>
+
+
+<!-- =================================
+     SECOND DESIGN
+     SOCIAL MEDIA CARDS
+     ================================= -->
+
+<div class="social-section">
+
+    <div class="social-container">
+
+
+        <!-- TWITTER -->
+
+        <div class="social-card">
+
+            <div class="social-icon">
+                ♥
+            </div>
+
+            <h2>TWITTER</h2>
+
+            <p>
+                Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit.
+                Expedita ullam aliquid non
+                eligendi, nemo est neque
+                reiciendis error?
+            </p>
+
+            <button class="social-btn">
+                READ MORE
+            </button>
+
+        </div>
+
+
+        <!-- INSTAGRAM -->
+
+        <div class="social-card instagram">
+
+            <div class="social-icon">
+                ◎
+            </div>
+
+            <h2>INSTAGRAM</h2>
+
+            <p>
+                Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit.
+                Expedita ullam aliquid non
+                eligendi, nemo est neque
+                reiciendis error?
+            </p>
+
+            <button class="social-btn">
+                READ MORE
+            </button>
+
+        </div>
+
+
+        <!-- YOUTUBE -->
+
+        <div class="social-card">
+
+            <div class="social-icon">
+                ▶
+            </div>
+
+            <h2>YOUTUBE</h2>
+
+            <p>
+                Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit.
+                Expedita ullam aliquid non
+                eligendi, nemo est neque
+                reiciendis error?
+            </p>
+
+            <button class="social-btn">
+                READ MORE
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
