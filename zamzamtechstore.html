@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ZamZam Tech Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f7f9fc;
+            color: #0d1b2a;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* ================= TOP BAR ================= */
+
+        .top-bar {
+            background: #071827;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 5%;
+            font-size: 13px;
+        }
+
+        .top-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e8edf3;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1250px;
+            margin: auto;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: #087ff5;
+            clip-path: polygon(
+                0 25%,
+                70% 25%,
+                55% 45%,
+                100% 45%,
+                30% 100%,
+                45% 60%,
+                0 60%
+            );
+        }
+
+        .logo-text h2 {
+            font-size: 22px;
+            color: #0c2035;
+        }
+
+        .logo-text span {
+            color: #087ff5;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #555;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #243447;
+            transition: .3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #087ff5;
+        }
+
+        .search-box {
+            width: 240px;
+            height: 42px;
+            border: 1px solid #dce3eb;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            gap: 8px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 13px;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 21px;
+        }
+
+        .cart {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            right: -9px;
+            top: -9px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #087ff5;
+            color: white;
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 25px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            max-width: 1250px;
+            margin: 25px auto;
+            min-height: 390px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background:
+                radial-gradient(circle at 80% 50%, #0b65bd 0%, transparent 35%),
+                linear-gradient(120deg, #031321, #06294b);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 60px;
+        }
+
+        .hero-content {
+            width: 50%;
+            z-index: 2;
+        }
+
+        .small-title {
+            color: #2d9cff;
+            font-size: 13px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #0984ff;
+        }
+
+        .hero p {
+            color: #d6e2ed;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .primary-btn {
+            background: #087ff5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 14px 25px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .primary-btn:hover {
+            background: #0069d9;
+            transform: translateY(-2px);
+        }
+
+        .hero-products {
+            position: absolute;
+            right: 50px;
+            bottom: 45px;
+            width: 48%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        .device {
+            background: linear-gradient(145deg, #252a2e, #050708);
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,.45);
+        }
+
+        .phone {
+            width: 75px;
+            height: 145px;
+            border: 4px solid #222;
+        }
+
+        .headphone {
+            width: 115px;
+            height: 130px;
+            border: 14px solid #1a1c1e;
+            border-bottom: none;
+            border-radius: 60px 60px 0 0;
+        }
+
+        .watch {
+            width: 55px;
+            height: 70px;
+            border-radius: 12px;
+            background: #15191c;
+        }
+
+        .powerbank {
+            width: 70px;
+            height: 110px;
+            border-radius: 12px;
+        }
+
+        /* ================= CATEGORIES ================= */
+
+        .section {
+            max-width: 1250px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 15px;
+        }
+
+        .category {
+            background: white;
+            border: 1px solid #e5eaf0;
+            border-radius: 10px;
+            padding: 20px 10px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            border-color: #087ff5;
+            box-shadow: 0 10px 25px rgba(0,0,0,.07);
+        }
+
+        .category-icon {
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .category h3 {
+            font-size: 13px;
+            line-height: 1.3;
+        }
+
+        /* ================= FEATURES ================= */
+
+        .features {
+            max-width: 1250px;
+            margin: 40px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #edf6ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #087ff5;
+            font-size: 22px;
+        }
+
+        .feature h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .feature p {
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* ================= SECTION TITLE ================= */
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .section-heading h2 {
+            font-size: 28px;
+        }
+
+        .section-heading h2::after {
+            content: "";
+            display: block;
+            width: 45px;
+            height: 3px;
+            background: #087ff5;
+            margin-top: 7px;
+        }
+
+        .view-all {
+            color: #087ff5;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            border: 1px solid #e5eaf0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transition: .3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,.08);
+        }
+
+        .discount {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #087ff5;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 11px;
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 220px;
+            background: #f5f8fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 90px;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .stars {
+            color: #f5a623;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .reviews {
+            color: #888;
+            font-size: 11px;
+        }
+
+        .price {
+            color: #087ff5;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .add-cart {
+            width: 100%;
+            margin-top: 14px;
+            background: #087ff5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 11px;
+            font-weight: bold;
+        }
+
+        .add-cart:hover {
+            background: #006bd8;
+        }
+
+        /* ================= PROMO ================= */
+
+        .promo {
+            max-width: 1250px;
+            margin: 50px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 45px;
+            color: white;
+            background:
+                radial-gradient(circle at 85% 40%, #0c70cf, transparent 35%),
+                linear-gradient(120deg, #031523, #062f54);
+            position: relative;
+        }
+
+        .promo h2 {
+            font-size: 32px;
+            margin: 8px 0;
+        }
+
+        .promo p {
+            color: #cddce9;
+            margin-bottom: 20px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #061522;
+            color: white;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            margin-bottom: 15px;
+        }
+
+        .footer h3 {
+            margin-bottom: 18px;
+        }
+
+        .footer p,
+        .footer a {
+            color: #aebdca;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .footer a {
+            display: block;
+        }
+
+        .footer a:hover {
+            color: #1689ff;
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #102c41;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .copyright {
+            max-width: 1250px;
+            margin: 40px auto 0;
+            border-top: 1px solid #193247;
+            padding-top: 20px;
+            color: #8496a5;
+            font-size: 12px;
+        }
+
+        /* ================= CART POPUP ================= */
+
+        .cart-popup {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #087ff5;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,.2);
+            display: none;
+            z-index: 2000;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .search-box {
+                width: 180px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 750px) {
+
+            .top-bar {
+                font-size: 10px;
+                gap: 8px;
+                padding: 8px 5px;
+            }
+
+            .top-item:nth-child(3),
+            .top-item:nth-child(4) {
+                display: none;
+            }
+
+            .navbar {
+                min-height: 65px;
+            }
+
+            .nav-links,
+            .search-box {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-icons {
+                margin-left: auto;
+                margin-right: 15px;
+            }
+
+            .mobile-menu {
+                display: none;
+                background: white;
+                padding: 15px 20px;
+                border-top: 1px solid #eee;
+            }
+
+            .mobile-menu a {
+                display: block;
+                padding: 12px 0;
+                border-bottom: 1px solid #eee;
+                font-weight: bold;
+            }
+
+            .hero {
+                margin: 15px;
+                padding: 35px 25px;
+                min-height: 470px;
+                align-items: flex-start;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 37px;
+            }
+
+            .hero-products {
+                width: 100%;
+                right: 0;
+                bottom: 30px;
+                transform: scale(.8);
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                margin: 25px 15px;
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                margin: 35px auto;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .product-image {
+                height: 160px;
+                font-size: 65px;
+            }
+
+            .product-info {
+                padding: 12px;
+            }
+
+            .product-info h3 {
+                font-size: 13px;
+            }
+
+            .price {
+                font-size: 15px;
+            }
+
+            .promo {
+                margin: 30px 15px;
+                padding: 30px 20px;
+            }
+
+            .promo h2 {
+                font-size: 25px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .logo-text h2 {
+                font-size: 18px;
+            }
+
+            .logo-text p {
+                font-size: 10px;
+            }
+
+            .logo-icon {
+                width: 34px;
+                height: 34px;
+            }
+
+            .nav-icons {
+                font-size: 18px;
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .category {
+                padding: 15px 5px;
+            }
+
+            .category-icon {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+
+        <div class="top-item">
+            🚚 Free Delivery All Over Pakistan
+        </div>
+
+        <div class="top-item">
+            🛡️ 100% Original Products
+        </div>
+
+        <div class="top-item">
+            🔄 Easy Returns & Exchange
+        </div>
+
+        <div class="top-item">
+            🎧 24/7 Customer Support
+        </div>
+
+    </div>
+
+
+    <!-- NAVBAR -->
+    <header>
+
+        <div class="navbar">
+
+            <div class="logo">
+
+                <div class="logo-icon"></div>
+
+                <div class="logo-text">
+                    <h2>Zam<span>Zam</span></h2>
+                    <p>Tech Store</p>
+                </div>
+
+            </div>
+
+
+            <nav class="nav-links">
+
+                <a href="#" class="active">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+
+            <div class="search-box">
+
+                🔍
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for products..."
+                >
+
+            </div>
+
+
+            <div class="nav-icons">
+
+                <span>👤</span>
+
+                <span class="cart">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </span>
+
+                <span class="menu-btn" onclick="toggleMenu()">☰</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="mobile-menu" id="mobileMenu">
+
+            <a href="#">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                LATEST TECH • BEST PRICES • TRUSTED STORE
+            </div>
+
+            <h1>
+                Your One Stop
+                <span>Tech Store</span>
+            </h1>
+
+            <p>
+                Smart devices. Better living.
+                Only at ZamZam Tech Store.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="scrollToProducts()"
+            >
+                Shop Now →
+            </button>
+
+        </div>
+
+
+        <div class="hero-products">
+
+            <div class="device phone"></div>
+
+            <div class="device headphone"></div>
+
+            <div class="device watch"></div>
+
+            <div class="device powerbank"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section class="section">
+
+        <div class="category-grid">
+
+            <div class="category">
+                <div class="category-icon">🔌</div>
+                <h3>Cables</h3>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🎧</div>
+                <h3>Earphones &<br>Headphones</h3>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🔋</div>
+                <h3>Power Banks</h3>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">📱</div>
+                <h3>Mobile Holders<br>& Mounts</h3>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🚗</div>
+                <h3>Car<br>Accessories</h3>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">🎮</div>
+                <h3>Wireless<br>Accessories</h3>
+            </div>
+
+            <div class="category">
+                <div class="category-icon">💾</div>
+                <h3>Memory &<br>Storage</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">🚚</div>
+
+            <div>
+                <h4>Fast & Reliable Delivery</h4>
+                <p>Across Pakistan</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">🛡️</div>
+
+            <div>
+                <h4>Secure Payments</h4>
+                <p>100% Safe</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">↩️</div>
+
+            <div>
+                <h4>Easy Returns</h4>
+                <p>Hassle Free</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">🎧</div>
+
+            <div>
+                <h4>Dedicated Support</h4>
+                <p>We're Here to Help</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+    <section class="section" id="shop">
+
+        <div class="section-heading">
+
+            <h2>Featured Products</h2>
+
+            <a href="#" class="view-all">
+                View All →
+            </a>
+
+        </div>
+
+
+        <div class="product-grid" id="productGrid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product" data-name="AirPods Pro">
+
+                <span class="discount">-20%</span>
+
+                <div class="product-image">
+                    🎧
+                </div>
+
+                <div class="product-info">
+
+                    <h3>AirPods Pro (2nd Gen)</h3>
+
+                    <div class="stars">
+                        ★★★★★
+                        <span class="reviews">(124)</span>
+                    </div>
+
+                    <div>
+                        <span class="price">Rs. 54,999</span>
+                        <span class="old-price">Rs. 68,999</span>
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart()">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product" data-name="Sony Headphones">
+
+                <span class="discount">-15%</span>
+
+                <div class="product-image">
+                    🎧
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Sony WH-CH720N Headphones</h3>
+
+                    <div class="stars">
+                        ★★★★★
+                        <span class="reviews">(98)</span>
+                    </div>
+
+                    <div>
+                        <span class="price">Rs. 29,999</span>
+                        <span class="old-price">Rs. 34,999</span>
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart()">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product" data-name="Anker Power Bank">
+
+                <span class="discount">-10%</span>
+
+                <div class="product-image">
+                    🔋
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Anker Power Bank 20000mAh</h3>
+
+                    <div class="stars">
+                        ★★★★★
+                        <span class="reviews">(76)</span>
+                    </div>
+
+                    <div>
+                        <span class="price">Rs. 14,999</span>
+                        <span class="old-price">Rs. 16,999</span>
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart()">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="product" data-name="Baseus Car Charger">
+
+                <span class="discount">-12%</span>
+
+                <div class="product-image">
+                    🚗
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Baseus Car Charger 65W</h3>
+
+                    <div class="stars">
+                        ★★★★★
+                        <span class="reviews">(42)</span>
+                    </div>
+
+                    <div>
+                        <span class="price">Rs. 3,499</span>
+                        <span class="old-price">Rs. 3,999</span>
+                    </div>
+
+                    <button class="add-cart" onclick="addToCart()">
+                        🛒 Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROMO BANNER -->
+    <section class="promo">
+
+        <div class="small-title">
+            UPGRADE YOUR TECH
+        </div>
+
+        <h2>Better Deals. Bigger Smiles.</h2>
+
+        <p>
+            Top brands • Genuine products • Unbeatable prices
+        </p>
+
+        <button class="primary-btn">
+            Explore All Products →
+        </button>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer id="contact">
+
+        <div class="footer-container">
+
+
+            <div class="footer">
+
+                <div class="logo footer-logo">
+
+                    <div class="logo-icon"></div>
+
+                    <div class="logo-text">
+                        <h2 style="color:white;">
+                            Zam<span>Zam</span>
+                        </h2>
+
+                        <p style="color:#aebdca;">
+                            Tech Store
+                        </p>
+                    </div>
+
+                </div>
+
+                <p>
+                    Your trusted tech partner.
+                    Quality products at affordable prices.
+                </p>
+
+                <div class="socials">
+
+                    <div class="social">f</div>
+                    <div class="social">◎</div>
+                    <div class="social">▶</div>
+                    <div class="social">♪</div>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer">
+
+                <h3>Quick Links</h3>
+
+                <a href="#">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+
+            </div>
+
+
+            <div class="footer">
+
+                <h3>Categories</h3>
+
+                <a href="#">Cables</a>
+                <a href="#">Earphones & Headphones</a>
+                <a href="#">Power Banks</a>
+                <a href="#">Car Accessories</a>
+                <a href="#">Wireless Accessories</a>
+
+            </div>
+
+
+            <div class="footer">
+
+                <h3>Get In Touch</h3>
+
+                <p>📞 +92 300 1234567</p>
+                <p>✉ support@zamzamtechstore.com</p>
+                <p>📍 Islamabad, Pakistan</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 ZamZam Tech Store. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- CART MESSAGE -->
+
+    <div class="cart-popup" id="cartPopup">
+        ✓ Product added to cart!
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* CART */
+
+        let cart = 0;
+
+        function addToCart() {
+
+            cart++;
+
+            document.getElementById("cartCount").innerText = cart;
+
+            const popup = document.getElementById("cartPopup");
+
+            popup.style.display = "block";
+
+            setTimeout(function() {
+                popup.style.display = "none";
+            }, 2000);
+
+        }
+
+
+        /* MOBILE MENU */
+
+        function toggleMenu() {
+
+            const menu = document.getElementById("mobileMenu");
+
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+
+        }
+
+
+        /* SHOP BUTTON */
+
+        function scrollToProducts() {
+
+            document.getElementById("shop").scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* PRODUCT SEARCH */
+
+        document
+            .getElementById("searchInput")
+            .addEventListener("keyup", function() {
+
+                let searchValue =
+                    this.value.toLowerCase();
+
+                let products =
+                    document.querySelectorAll(".product");
+
+                products.forEach(function(product) {
+
+                    let productName =
+                        product
+                        .getAttribute("data-name")
+                        .toLowerCase();
+
+                    if (
+                        productName.includes(searchValue)
+                    ) {
+
+                        product.style.display = "block";
+
+                    } else {
+
+                        product.style.display = "none";
+
+                    }
+
+                });
+
+            });
+
+
+        /* NAVBAR SCROLL */
+
+        window.addEventListener("scroll", function() {
+
+            const header =
+                document.querySelector("header");
+
+            if (window.scrollY > 50) {
+
+                header.style.boxShadow =
+                    "0 5px 20px rgba(0,0,0,.08)";
+
+            } else {
+
+                header.style.boxShadow = "none";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
